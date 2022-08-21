@@ -52,6 +52,3 @@ elif option=='Content-Based Recommender System':
      out2=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
      out2=out2.reset_index(drop=True).title.head(int(rec))
      st.write(out2)
-else:
-     
-
