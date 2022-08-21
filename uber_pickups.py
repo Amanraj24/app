@@ -6,6 +6,7 @@ import numpy as np
 
 movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
+st.write(movies.head())
 #title= st.text_input('Movie title', 'Life of Brian')
 #st.write('The current movie title is', title)
 ge=st.text_input("Genre(g):","Comedy")
