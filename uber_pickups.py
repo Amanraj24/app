@@ -7,7 +7,7 @@ st.title('Popularity-Based Recommender System at a Genre Level')
 movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
 type_movies=movies.groupby("genres")["movieId"].sum().sort_values(ascending=False)
-st.write(
+st.write("List of Genres")
 st.write(type_movies)
 #title= st.text_input('Movie title', 'Life of Brian')
 #st.write('The current movie title is', title)
