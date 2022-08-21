@@ -45,17 +45,15 @@ elif option=='Content-Based Recommender System':
      
      id1=movie["movieId"].tolist()
      id2=id1[0]
-     st.write(type(id1))
      genre=merged_left[merged_left["movieId"]==id2]
-     #genre=genre["genres"]
-     st.write(genre)
-     #gen=genre.tolist()
-     #st.write(gen)
-     #ge=st.text(gen[0])
-     #st.write(ge)
-     #out2=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
-     #out2=out2.title.head(int(rec))
-     #st.write(out2)
+     genre=genre["genres"].unique
+     gen=genre.tolist()
+     st.write(gen)
+     ge=st.text(gen[0])
+     st.write(ge)
+     out2=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
+     out2=out2.title.head(int(rec))
+     st.write(out2)
 
 
 #DATE_COLUMN = 'date/time'
