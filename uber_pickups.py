@@ -12,8 +12,11 @@ ge=st.text_input("Genre(g):","Comedy")
 th=st.text_input("Minimum reviews threshold(t):",0)
 re=st.text_input("Num recommendations (N) :",0)
 
-
-
+merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId', right_on='movieId')
+out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
+out["Reviews"]=out.userId
+out=out.reset_index(drop=True)
+st.write(out[["title","rating","Reviews"]].head(re))
 
 st.title('Uber pickups in NYC')
 
