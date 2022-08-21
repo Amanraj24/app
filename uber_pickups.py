@@ -46,7 +46,8 @@ elif option=='Content-Based Recommender System':
      id1=movie["movieId"].tolist()
      id2=id1[0]
      genre=merged_left[merged_left["movieId"]==id2]
-     genre=genre["genres"].unique
+     genre=genre["genres"].unique()
+     st.write(type(genre))
      gen=genre.tolist()
      st.write(gen)
      ge=st.text(gen[0])
