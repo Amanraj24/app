@@ -8,9 +8,9 @@ movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
 #title= st.text_input('Movie title', 'Life of Brian')
 #st.write('The current movie title is', title)
-ge=st.text_input("Genre(g):")
-th=st.text_input(int("Minimum reviews threshold(t):"))
-re=st.text_input(int("Num recommendations (N) :"))
+ge=st.text_input("Genre(g):","Comedy")
+th=st.text_input("Minimum reviews threshold(t):",0)
+re=st.text_input("Num recommendations (N) :",0)
 
 
 
