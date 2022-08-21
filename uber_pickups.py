@@ -6,7 +6,6 @@ import numpy as np
 
 movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
-st.write(movies.head())
 #title= st.text_input('Movie title', 'Life of Brian')
 #st.write('The current movie title is', title)
 ge=st.text_input("Genre(g):","Comedy")
@@ -17,7 +16,7 @@ merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId'
 out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
 out["Reviews"]=out.userId
 out=out.reset_index(drop=True)
-final=out[["title","rating","Reviews"]].head(re)
+final=out[["title","rating","Reviews"]]
 st.write(final)
 
 st.title('Uber pickups in NYC')
