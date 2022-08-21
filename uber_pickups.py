@@ -13,7 +13,7 @@ button = widg.Button(description="Check")
 #button.on_click(on_button_clicked)
 inputs=widg.VBox([gen,thres,rec])
 interface=widg.VBox([inputs,button])
-st.display(interface)
+st.interface
 
 
 
