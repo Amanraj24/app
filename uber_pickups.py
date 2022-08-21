@@ -8,8 +8,8 @@ option = st.selectbox(
      'Select Type of Recommender System',
      ('Popularity-Based Recommender System', 'Content-Based Recommender System', 'Collaborative Based Recommender System'))
 
-st.write('You selected:', option)
-st.title('Popularity-Based Recommender System at a Genre Level')
+
+st.title(option)
 movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
 type_movies=movies.groupby("genres")["movieId"].sum().sort_values(ascending=False)
