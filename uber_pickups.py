@@ -6,6 +6,9 @@ import numpy as np
 st.title('Popularity-Based Recommender System at a Genre Level')
 movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
+type_movies=movies.groupby("genres")["movieId"].sum().sort_values(ascending=False)
+st.write(
+st.write(type_movies)
 #title= st.text_input('Movie title', 'Life of Brian')
 #st.write('The current movie title is', title)
 ge=st.text_input("Genre(g):","Comedy")
@@ -14,9 +17,12 @@ re=st.text_input("Num recommendations (N) :",0)
 
 merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId', right_on='movieId')
 out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
-out["Reviews"]=out.userId
+out=out[out["userId"]>=int(th)]
+out["Num Reviews"]=out.userId.astype("int")
+out["Movie Title"]=out.title
+out["Average Movie Rating"]=out.rating.astype("int")
 out=out.reset_index(drop=True)
-final=out[["title","rating","Reviews"]]
+final=out[["Movie Title","Average Movie Rating","Num Reviews"]]
 st.write(final.head(int(re)))
 
 
