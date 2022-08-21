@@ -19,10 +19,10 @@ merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId'
 out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
 out=out[out["userId"]>=int(th)]
 out["Num Reviews"]=out.userId.astype("int")
-out["          Movie Title            "]=out.title
-out["Average Movie Rating"]=out.rating.astype("int")
+out["Movie Title"]=out.title
+out["Average Movie Rating"]=out.rating.astype("float")
 out=out.reset_index(drop=True)
-final=out[["          Movie Title            ","Average Movie Rating","Num Reviews"]]
+final=out[["Movie Title","Average Movie Rating","Num Reviews"]]
 st.write(final.head(int(re)))
 
 
