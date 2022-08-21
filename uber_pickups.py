@@ -17,20 +17,39 @@ st.write("List of Genres")
 st.write(type_movies.drop(columns="movieId"))
 #title= st.text_input('Movie title', 'Life of Brian')
 #st.write('The current movie title is', title)
-ge=st.text_input("Genre(g):","Comedy")
-th=st.text_input("Minimum reviews threshold(t):",0)
-re=st.text_input("Num recommendations (N) :",0)
+
 
 merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId', right_on='movieId')
-out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
-out=out[out["userId"]>=int(th)]
-out["Num Reviews"]=out.userId.astype("int")
-out["Movie Title"]=out.title
-out["Average Movie Rating"]=out.rating.astype("float")
-out=out.reset_index(drop=True)
-final=out[["Movie Title","Average Movie Rating","Num Reviews"]]
-st.write(final.head(int(re)))
-
+if option=='Popularity-Based Recommender System':
+     ge=st.text_input("Genre(g):","Comedy")
+     th=st.text_input("Minimum reviews threshold(t):",0)
+     re=st.text_input("Num recommendations (N) :",0)
+     out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
+     out=out[out["userId"]>=int(th)]
+     out["Num Reviews"]=out.userId.astype("int")
+     out["Movie Title"]=out.title
+     out["Average Movie Rating"]=out.rating.astype("float")
+     out=out.reset_index(drop=True)
+     final=out[["Movie Title","Average Movie Rating","Num Reviews"]]
+     st.write(final.head(int(re)))
+elif option=='Content-Based Recommender System':
+     for i in range(0,len(movies)):
+          Str = movies["title"][i]
+          l = len(Str)
+          Remove_last = Str[:l-7]
+          movies["title"][i]=Remove_last
+     n_movies=movies
+     mv=st.text_input("Movie Title (t): ")
+     rec=st.text_input("Num recommendations (N):")
+     movie=n_movies[n_movies["title"]==mv]
+     id=movie["movieId"].tolist()
+     id=id[0]
+     genre=merged_left[merged_left["movieId"]==id]["genres"]
+     genre=genre.unique()
+     ge=genre.tolist()[0]
+     out2=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
+     out2=out2.title.head(int(rec))
+     st.write(out2)
 
 
 #DATE_COLUMN = 'date/time'
