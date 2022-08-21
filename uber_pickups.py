@@ -17,7 +17,7 @@ out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","u
 out["Reviews"]=out.userId
 out=out.reset_index(drop=True)
 final=out[["title","rating","Reviews"]]
-st.write(final)
+st.write(final.head(re))
 
 st.title('Uber pickups in NYC')
 
