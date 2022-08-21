@@ -6,6 +6,19 @@ import numpy as np
 
 movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
+gen=widg.Text(description="Genre(g):")
+thres=widg.IntText(description="Minimum reviews threshold(t):")
+rec=widg.IntText(description="Num recommendations (N) :")
+button = widg.Button(description="Check")
+#button.on_click(on_button_clicked)
+inputs=widg.VBox([gen,thres,rec])
+interface=widg.VBox([inputs,button])
+st.display(interface)
+
+
+
+
+
 st.title('Uber pickups in NYC')
 
 DATE_COLUMN = 'date/time'
