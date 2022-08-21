@@ -3,6 +3,12 @@ from IPython.display import display
 import streamlit as st
 import pandas as pd
 import numpy as np
+
+option = st.selectbox(
+     'Select Type of Recommender System',
+     ('Popularity-Based Recommender System', 'Content-Based Recommender System', 'Collaborative Based Recommender System'))
+
+st.write('You selected:', option)
 st.title('Popularity-Based Recommender System at a Genre Level')
 movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
