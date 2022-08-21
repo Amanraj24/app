@@ -39,7 +39,7 @@ elif option=='Content-Based Recommender System':
           Remove_last = Str[:l-7]
           movies["title"][i]=Remove_last
      n_movies=movies
-     mv=st.text_input("Movie Title (t): ","Jumanji")
+     mv=st.text_input("Movie Title (t): ",'Jumanji')
      rec=st.text_input("Num recommendations (N):",5)
      movie=n_movies[n_movies["title"]==mv]
      
