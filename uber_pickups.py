@@ -51,7 +51,7 @@ elif option=='Content-Based Recommender System':
      gen=genre.tolist()
      st.write(gen)
      ge=st.text(gen[0])
-     st.write(ge)
+     st.write(type(ge))
      out2=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
      out2=out2.title.head(int(rec))
      st.write(out2)
