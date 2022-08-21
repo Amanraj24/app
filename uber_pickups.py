@@ -45,7 +45,7 @@ elif option=='Content-Based Recommender System':
      
      id1=movie["movieId"].tolist()
      id2=st.text(id1[0])
-     genre=merged_left[merged_left["movieId"]==eval(id2)]["genres"]
+     genre=merged_left[merged_left["movieId"]==id2]["genres"]
      genre=genre.unique()
      ge=st.text(genre.tolist()[0])
      out2=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
