@@ -43,7 +43,8 @@ elif option=='Content-Based Recommender System':
      rec=st.text_input("Num recommendations (N):")
      movie=n_movies[n_movies["title"]==mv]
      
-     id1=movie["movieId"].tolist()[0]
+     id1=movie["movieId"].tolist()
+     st.write(id1)
      genre=merged_left[merged_left["movieId"]==id1]["genres"]
      genre=genre.unique()
      ge=genre.tolist()[0]
