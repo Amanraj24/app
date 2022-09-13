@@ -1,5 +1,3 @@
-import ipywidgets as widg
-from IPython.display import display
 import streamlit as st
 import pandas as pd
 import numpy as np
