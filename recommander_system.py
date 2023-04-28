@@ -57,9 +57,9 @@ else:
      usr_mv=merged_left[merged_left["userId"]==int(usr)][["title","userId"]]
      a=usr_mv.title.tolist()
      diff_usr=merged_left[merged_left["title"]==a[0]]
-     for i in range(1,len(a)):
-          diff_usr=diff_usr.append(merged_left[merged_left["title"]==a[i]])
-          st.write(diff_usr)
+#      for i in range(1,len(a)):
+#          diff_usr=diff_usr.append(merged_left[merged_left["title"]==a[i]])
+          
      diff_usr=diff_usr["userId"].unique()
      diff_usr=diff_usr.tolist()
      diff_usr=diff_usr[:int(thr)]
