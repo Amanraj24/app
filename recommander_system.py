@@ -64,8 +64,8 @@ else:
      diff_usr=diff_usr.tolist()
      diff_usr=diff_usr[:int(thr)]
      sg_mv=merged_left[merged_left["userId"]==diff_usr[0]]
-     for i in range(1,len(diff_usr)):
-          sg_mv=sg_mv.append(merged_left[merged_left["userId"]==diff_usr[i]])
+#      for i in range(1,len(diff_usr)):
+#           sg_mv=sg_mv.append(merged_left[merged_left["userId"]==diff_usr[i]])
      sg_mv=sg_mv.reset_index(drop=True)
      sg_mv=sg_mv["title"].unique()
      sg_mv=pd.DataFrame(sg_mv,columns=["Movie Title"])
